@@ -1,0 +1,85 @@
+<?php
+
+namespace JuiceCRM\I18nData;
+
+use Illuminate\Support\ServiceProvider;
+use JuiceCRM\I18nData\Console\Commands\Refresh as RefreshCommand;
+
+class SkeletonServiceProvider extends ServiceProvider
+{
+	/**
+	 * @inheritDoc
+	 */
+	public function boot()
+	{
+		/*
+		 * Remove if your package does not have a console command.
+		 */
+		if($this->app->runningInConsole()) {
+			$this->commands([
+				RefreshCommand::class,
+			]);
+		}
+
+		/*
+		 * Remove if your package does not have routes.
+		 */
+		// Route::controller(SkeletonController::class)
+		// 	->prefix('skeleton')
+		// 	->group(function() {
+		// 		Route::get('', 'index');
+		// 	});
+
+		/*
+		 * Remove if your package does not have views.
+		 */
+		// $this->loadViewsFrom(__DIR__.'/../resources/views', 'juicecrm-skeleton');
+		// $this->publishes([
+		// 	__DIR__.'/../resources/views' => resource_path('views/vendor/juicecrm-skeleton'),
+		// ], 'views');
+
+		/*
+		 * Remove if your package does not have a config file.
+		 */
+		// $this->publishes([
+		// 	__DIR__.'/../config/juicecrm-skeleton.php' => base_path('config/juicecrm-skeleton.php'),
+		// ], 'config');
+
+		/*
+		 * Remove if your package does not have a migrations.
+		 */
+		// if(!class_exists('CreateSkeletonsTable')) {
+		// 	$this->publishes([
+		// 		__DIR__.'/../database/migrations/create_skeletons_table_php.stub' =>
+		// 			database_path('migrations/'.date('Y_m_d_His', time()).'_create_skeletons_table.php'),
+		// 	], 'migrations');
+		// }
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function register()
+	{
+		/*----------------------------------------------------------------------
+		| Using Facades
+		|-----------------------------------------------------------------------
+		|
+		| If you want to use a Facade in your package, please alter the code
+		| below, and create a class in the Facades directory that extends
+		| Illuminate\Support\Facades\Facade and implements the
+		| getFacadeAccessor() function. That function should return the same
+		| that the code below also uses.
+		|
+		*/
+
+		// $this->app->bind('skeleton-facade', function () {
+		// 	return new Skeleton();
+		// });
+
+		/*
+		 * Remove if your package does not have a config file.
+		 */
+		// $this->mergeConfigFrom(__DIR__.'/../config/juicecrm-skeleton.php', 'juicecrm-skeleton');
+	}
+}

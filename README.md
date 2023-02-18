@@ -1,4 +1,4 @@
-# Internationalization Data
+# Internationalization Data for Laravel
 Badges go here
 
 Store internationalization data, and make it available via Laravel 10 Models.
