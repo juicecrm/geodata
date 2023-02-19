@@ -1,11 +1,11 @@
 <?php
 
-namespace JuiceCRM\I18nData\Exceptions;
+namespace JuiceCRM\GeoData\Exceptions;
 
 use Exception;
 use Throwable;
 
-class I18nDataException extends Exception implements Throwable
+class GeoDataException extends Exception implements Throwable
 {
 	public function __construct(string $message)
 	{

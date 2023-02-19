@@ -1,6 +1,6 @@
 <?php
 
-namespace JuiceCRM\I18nData\Console\Commands;
+namespace JuiceCRM\GeoData\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -9,38 +9,38 @@ class Refresh extends Command
 	/**
 	 * @inheritDoc
 	 */
-	protected $signature = 'i18n-data:refresh';
+	protected $signature = 'geodata:refresh';
 	
 	/**
 	 * @inheritDoc
 	 */
-	protected $description = 'Refresh the internationalization data.';
+	protected $description = 'Refresh the Geographical data.';
 
 	/**
 	 * @inheritDoc
 	 */
 	public function handle()
 	{
-		$this->components->info('Refreshing Internationalization Data.');
+		$this->components->info('Refreshing Geographical Data.');
 
 		$this->retrieveData();
 
-		$this->compileI18nData();
+		$this->compileGeoData();
 
-		$this->storeI18nData();
+		$this->storeGeoData();
 
 		return Command::SUCCESS;
 	}
 
 	/**
-	 * Compile the retrieved data and store I18nData.
+	 * Compile the retrieved data and store GeoData.
 	 *
 	 * @return void
 	 */
-	protected function compileI18nData()
+	protected function compileGeoData()
 	{
 		$this->components->task('Compiling i18n data', function () {
-			return $this->callSilent('i18n-data:compile') == Command::SUCCESS;
+			return $this->callSilent('geodata:compile') == Command::SUCCESS;
 		});
 	}
 
@@ -52,19 +52,19 @@ class Refresh extends Command
 	protected function retrieveData()
 	{
 		$this->components->task('Retrieving data', function () {
-			return $this->callSilent('i18n-data:retrieve') == Command::SUCCESS;
+			return $this->callSilent('geodata:retrieve') == Command::SUCCESS;
 		});
 	}
 
 	/**
-	 * Store the retrieved data and store I18nData in the database.
+	 * Store the retrieved data and store GeoData in the database.
 	 *
 	 * @return void
 	 */
-	protected function storeI18nData()
+	protected function storeGeoData()
 	{
 		$this->components->task('Storing i18n data', function () {
-			return $this->callSilent('i18n-data:store') == Command::SUCCESS;
+			return $this->callSilent('geodata:store') == Command::SUCCESS;
 		});
 	}
 }

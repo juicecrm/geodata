@@ -1,7 +1,7 @@
-# Internationalization Data for Laravel
+# Geographical Data for Laravel
 Badges go here
 
-Store internationalization data, and make it available via Laravel 10 Models.
+Store geographical data, and make it available via Laravel 10 Models.
 
 ## Installation
 

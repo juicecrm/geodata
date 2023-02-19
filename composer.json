@@ -1,16 +1,16 @@
 {
-    "name": "juicecrm/i18n-data",
-    "description": "Internationalization Data for Laravel 10 and later",
+    "name": "juicecrm/geodata",
+    "description": "Geographical Data for Laravel 10 and later",
     "type": "library",
     "license": "GLPv3",
     "autoload": {
         "psr-4": {
-            "JuiceCrm\\I18nData\\": "src/"
+            "JuiceCrm\\GeoData\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JuiceCrm\\I18nData\\Tests\\": "tests/"
+            "JuiceCrm\\GeoData\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -22,10 +22,10 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-				"JuiceCRM\\I18nData\\I18nDataServiceProvider"
+				"JuiceCRM\\GeoData\\GeoDataServiceProvider"
 			],
 			"aliases": {
-				"Country": "JuiceCRM\\I18nData\\Facades\\Country"
+				"Country": "JuiceCRM\\GeoData\\Facades\\Country"
 			}
 		}
 	},

@@ -1,26 +1,26 @@
 <?php
 
 use Illuminate\Console\Command;
-use JuiceCRM\I18nData\Actions\Retrieve as RetrieveAction;
+use JuiceCRM\GeoData\Actions\Retrieve as RetrieveAction;
 
 class Retrieve extends Command
 {
 	/**
 	 * @inheritDoc
 	 */
-	protected $signature = 'i18n-data:retrieve';
+	protected $signature = 'geodata:retrieve';
 	
 	/**
 	 * @inheritDoc
 	 */
-	protected $description = 'Retrieve the internationalization data.';
+	protected $description = 'Retrieve the Geographical data.';
 
 	/**
 	 * @inheritDoc
 	 */
 	public function handle()
 	{
-		$this->components->info('Retrieving Internationalization Data.');
+		$this->components->info('Retrieving Geographical Data.');
 
 		try {
 			(new RetrieveAction)();

@@ -1,9 +1,9 @@
 <?php
 
-namespace JuiceCRM\I18nData;
+namespace JuiceCRM\GeoData;
 
 use Illuminate\Support\ServiceProvider;
-use JuiceCRM\I18nData\Console\Commands\Refresh as RefreshCommand;
+use JuiceCRM\GeoData\Console\Commands\Refresh as RefreshCommand;
 
 class SkeletonServiceProvider extends ServiceProvider
 {
