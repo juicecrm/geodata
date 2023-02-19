@@ -3,9 +3,12 @@
 namespace JuiceCRM\GeoData;
 
 use Illuminate\Support\ServiceProvider;
-use JuiceCRM\GeoData\Console\Commands\Refresh as RefreshCommand;
+use JuiceCRM\GeoData\Console\Commands\Extract;
+use JuiceCRM\GeoData\Console\Commands\Refresh;
+use JuiceCRM\GeoData\Console\Commands\Retrieve;
+use JuiceCRM\GeoData\Console\Commands\Store;
 
-class SkeletonServiceProvider extends ServiceProvider
+class GeoDataServiceProvider extends ServiceProvider
 {
 	/**
 	 * @inheritDoc
@@ -17,7 +20,10 @@ class SkeletonServiceProvider extends ServiceProvider
 		 */
 		if($this->app->runningInConsole()) {
 			$this->commands([
-				RefreshCommand::class,
+				Extract::class,
+				Refresh::class,
+				Retrieve::class,
+				Store::class,
 			]);
 		}
 
@@ -36,24 +42,27 @@ class SkeletonServiceProvider extends ServiceProvider
 		// $this->loadViewsFrom(__DIR__.'/../resources/views', 'juicecrm-skeleton');
 		// $this->publishes([
 		// 	__DIR__.'/../resources/views' => resource_path('views/vendor/juicecrm-skeleton'),
-		// ], 'views');
+		// ], 'geodata-views');
 
 		/*
 		 * Remove if your package does not have a config file.
 		 */
 		// $this->publishes([
 		// 	__DIR__.'/../config/juicecrm-skeleton.php' => base_path('config/juicecrm-skeleton.php'),
-		// ], 'config');
+		// ], 'geodata-config');
 
 		/*
-		 * Remove if your package does not have a migrations.
+		 * Publish Database Migrations
 		 */
-		// if(!class_exists('CreateSkeletonsTable')) {
-		// 	$this->publishes([
-		// 		__DIR__.'/../database/migrations/create_skeletons_table_php.stub' =>
-		// 			database_path('migrations/'.date('Y_m_d_His', time()).'_create_skeletons_table.php'),
-		// 	], 'migrations');
-		// }
+		$this->publishes([
+			__DIR__.'/../database/migrations/3333_02_19_132634_create_regions_table.php' =>
+				database_path('migrations/3333_02_19_132634_create_regions_table.php'),
+		], 'geodata-migrations');
+
+		/*
+		 * Load Database Migrations
+		 */
+		$this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 	}
 
 	/**

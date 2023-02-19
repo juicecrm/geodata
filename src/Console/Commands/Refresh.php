@@ -23,7 +23,7 @@ class Refresh extends Command
 	{
 		$this->components->info('Refreshing Geographical Data.');
 
-		$this->retrieveData();
+		$this->retrieveGeoData();
 
 		$this->compileGeoData();
 
@@ -37,10 +37,10 @@ class Refresh extends Command
 	 *
 	 * @return void
 	 */
-	protected function compileGeoData()
+	protected function extractGeoData()
 	{
-		$this->components->task('Compiling i18n data', function () {
-			return $this->callSilent('geodata:compile') == Command::SUCCESS;
+		$this->components->task('Extracting Geographical Data', function () {
+			return $this->callSilent('geodata:extract') == Command::SUCCESS;
 		});
 	}
 
@@ -49,9 +49,9 @@ class Refresh extends Command
 	 *
 	 * @return void
 	 */
-	protected function retrieveData()
+	protected function retrieveGeoData()
 	{
-		$this->components->task('Retrieving data', function () {
+		$this->components->task('Retrieving Geographical Data', function () {
 			return $this->callSilent('geodata:retrieve') == Command::SUCCESS;
 		});
 	}
@@ -63,7 +63,7 @@ class Refresh extends Command
 	 */
 	protected function storeGeoData()
 	{
-		$this->components->task('Storing i18n data', function () {
+		$this->components->task('Storing Geographical Data', function () {
 			return $this->callSilent('geodata:store') == Command::SUCCESS;
 		});
 	}

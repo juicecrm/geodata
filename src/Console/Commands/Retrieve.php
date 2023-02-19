@@ -1,5 +1,7 @@
 <?php
 
+namespace JuiceCRM\GeoData\Console\Commands;
+
 use Illuminate\Console\Command;
 use JuiceCRM\GeoData\Actions\Retrieve as RetrieveAction;
 
