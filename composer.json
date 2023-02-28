@@ -37,6 +37,7 @@
         "illuminate/database": "^10.0",
         "illuminate/routing": "^10.0",
         "illuminate/support": "^10.0",
-        "phpunit/phpunit": "^10.0"
+        "phpunit/phpunit": "^10.0",
+        "laravel/pint": "^1.6"
     }
 }

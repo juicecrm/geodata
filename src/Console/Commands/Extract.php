@@ -7,31 +7,31 @@ use JuiceCRM\GeoData\Actions\Extract as ExtractAction;
 
 class Extract extends Command
 {
-	/**
-	 * @inheritDoc
-	 */
-	protected $signature = 'geodata:extract';
-	
-	/**
-	 * @inheritDoc
-	 */
-	protected $description = 'Extract the geographical data.';
+    /**
+     * {@inheritDoc}
+     */
+    protected $signature = 'geodata:extract';
 
-	/**
-	 * @inheritDoc
-	 */
-	public function handle()
-	{
-		$this->components->info('Extracting Geographical Data.');
+    /**
+     * {@inheritDoc}
+     */
+    protected $description = 'Extract the geographical data.';
 
-		try {
-			(new ExtractAction)();
-		} catch(Throwable $t) {
-			$this->components->error('Failed to extract geographical data.');
+    /**
+     * {@inheritDoc}
+     */
+    public function handle()
+    {
+        $this->components->info('Extracting Geographical Data.');
 
-			return Command::FAILURE;
-		}
+        try {
+            (new ExtractAction)();
+        } catch(Throwable $t) {
+            $this->components->error('Failed to extract geographical data.');
 
-		return Command::SUCCESS;
-	}
+            return Command::FAILURE;
+        }
+
+        return Command::SUCCESS;
+    }
 }

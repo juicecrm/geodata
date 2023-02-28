@@ -8,27 +8,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Region extends Model
 {
-	use HasUlids;
+    use HasUlids;
 
-	protected $fillable = ['name', 'parent_region_id',];
+    protected $fillable = ['name', 'parent_region_id'];
 
-	/**
-	 * The Region model that is the parent of this Region model.
-	 *
-	 * @return BelongsTo
-	 */
-	public function parentRegion(): BelongsTo
-	{
-		$this->belongsTo(Region::class, 'parent_region_id');
-	}
+    /**
+     * The Region model that is the parent of this Region model.
+     */
+    public function parentRegion(): BelongsTo
+    {
+        $this->belongsTo(Region::class, 'parent_region_id');
+    }
 
-	/**
-	 * The Region models that are children of this Region model.
-	 *
-	 * @return HasMany
-	 */
-	public function childRegions(): HasMany
-	{
-		$this->hasMany(Region::class, 'parent_region_id');
-	}
+    /**
+     * The Region models that are children of this Region model.
+     */
+    public function childRegions(): HasMany
+    {
+        $this->hasMany(Region::class, 'parent_region_id');
+    }
 }

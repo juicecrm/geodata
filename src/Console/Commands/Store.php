@@ -7,31 +7,31 @@ use JuiceCRM\GeoData\Actions\Store as StoreAction;
 
 class Store extends Command
 {
-	/**
-	 * @inheritDoc
-	 */
-	protected $signature = 'geodata:store';
-	
-	/**
-	 * @inheritDoc
-	 */
-	protected $description = 'Store the geographical data.';
+    /**
+     * {@inheritDoc}
+     */
+    protected $signature = 'geodata:store';
 
-	/**
-	 * @inheritDoc
-	 */
-	public function handle()
-	{
-		$this->components->info('Storing Geographical Data.');
+    /**
+     * {@inheritDoc}
+     */
+    protected $description = 'Store the geographical data.';
 
-		try {
-			(new StoreAction)();
-		} catch(Throwable $t) {
-			$this->components->error('Failed to store geographical data.');
+    /**
+     * {@inheritDoc}
+     */
+    public function handle()
+    {
+        $this->components->info('Storing Geographical Data.');
 
-			return Command::FAILURE;
-		}
+        try {
+            (new StoreAction)();
+        } catch(Throwable $t) {
+            $this->components->error('Failed to store geographical data.');
 
-		return Command::SUCCESS;
-	}
+            return Command::FAILURE;
+        }
+
+        return Command::SUCCESS;
+    }
 }

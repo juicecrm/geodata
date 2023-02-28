@@ -7,31 +7,31 @@ use JuiceCRM\GeoData\Actions\Retrieve as RetrieveAction;
 
 class Retrieve extends Command
 {
-	/**
-	 * @inheritDoc
-	 */
-	protected $signature = 'geodata:retrieve';
-	
-	/**
-	 * @inheritDoc
-	 */
-	protected $description = 'Retrieve the Geographical data.';
+    /**
+     * {@inheritDoc}
+     */
+    protected $signature = 'geodata:retrieve';
 
-	/**
-	 * @inheritDoc
-	 */
-	public function handle()
-	{
-		$this->components->info('Retrieving Geographical Data.');
+    /**
+     * {@inheritDoc}
+     */
+    protected $description = 'Retrieve the Geographical data.';
 
-		try {
-			(new RetrieveAction)();
-		} catch(Throwable $t) {
-			$this->components->error('Failed to retrieve i18n data.');
+    /**
+     * {@inheritDoc}
+     */
+    public function handle()
+    {
+        $this->components->info('Retrieving Geographical Data.');
 
-			return Command::FAILURE;
-		}
+        try {
+            (new RetrieveAction)();
+        } catch(Throwable $t) {
+            $this->components->error('Failed to retrieve i18n data.');
 
-		return Command::SUCCESS;
-	}
+            return Command::FAILURE;
+        }
+
+        return Command::SUCCESS;
+    }
 }
