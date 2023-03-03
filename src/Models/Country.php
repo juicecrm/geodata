@@ -16,11 +16,31 @@ class Country extends Model
         'longitude', 'numeric', 'official', 'region_id', 'status', 'updated_at',
     ];
 
+	/**
+	 * The Currency models that belong to this Country model.
+	 *
+	 * @return BelongsToMany
+	 */
+	public function currencies(): BelongsToMany
+	{
+		return $this->belongsToMany(Currency::class);
+	}
+
+	/**
+	 * The Country models that are a neighbor of this Country model.
+	 *
+	 * @return BelongsToMany
+	 */
 	public function neighbors(): BelongsToMany
 	{
 		return $this->belongsToMany(Country::class, null, 'country_id', 'neighbor_country_id');
 	}
 
+	/**
+	 * The Country models of which this Country model is a neighbor.
+	 *
+	 * @return BelongsToMany
+	 */
 	public function neighborsOf(): BelongsToMany
 	{
 		return $this->belongsToMany(Country::class, null, 'neighbor_country_id', 'country_id');
