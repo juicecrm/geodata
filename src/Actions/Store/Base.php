@@ -8,6 +8,7 @@ use JuiceCRM\GeoData\Models\Region;
 class Base
 {
 	protected $jsonCountries;
+	protected $jsonCurrencies;
 	
     /**
      * Load the countries from the JSON file.
@@ -22,6 +23,23 @@ class Base
 
 		$this->jsonCountries = json_decode(
             file_get_contents(storage_path('app/geodata/extracts/countries-master/countries.json')),
+            true
+        );
+    }
+	
+    /**
+     * Load the currencies from the JSON file.
+     *
+     * @return void
+     */
+    protected function loadJsonCurrencies()
+    {
+        if (! file_exists(storage_path('app/geodata/extracts/world-currencies-master/dist/json/currencies.json'))) {
+            throw new GeoDataException('Data is not extracted yet.');
+        }
+
+		$this->jsonCurrencies = json_decode(
+            file_get_contents(storage_path('app/geodata/extracts/world-currencies-master/dist/json/currencies.json')),
             true
         );
     }

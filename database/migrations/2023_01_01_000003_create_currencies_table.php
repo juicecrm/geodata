@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('currencies', function (Blueprint $table) {
             $table->ulid('id')->primary();
+            $table->string('iso3', 3);
+			$table->string('major_name')->default('');
+			$table->string('major_symbol')->default('');
+			$table->string('minor_name')->default('');
+			$table->string('minor_symbol')->default('');
+			$table->double('minor_value')->default(0.0);
             $table->string('name');
+            $table->string('numeric', 3);
             $table->timestamps();
             $table->softDeletes();
         });
