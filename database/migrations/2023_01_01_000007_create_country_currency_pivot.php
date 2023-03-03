@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('country_currency', function (Blueprint $table) {
             $table->id();
-			$table->foreignUlid('country_id');
-			$table->foreignUlid('currency_id');
+            $table->foreignUlid('country_id');
+            $table->foreignUlid('currency_id');
         });
     }
 

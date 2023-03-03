@@ -13,13 +13,11 @@ class Demonym extends Model
 
     protected $fillable = ['created_at', 'deleted_at', 'female', 'name', 'updated_at'];
 
-	/**
-	 * The Country models to which this Demonym model belongs.
-	 *
-	 * @return BelongsToMany
-	 */
-	public function countries(): BelongsToMany
-	{
-		return $this->belongsToMany(Country::class);
-	}
+    /**
+     * The Country models to which this Demonym model belongs.
+     */
+    public function countries(): BelongsToMany
+    {
+        return $this->belongsToMany(Country::class);
+    }
 }

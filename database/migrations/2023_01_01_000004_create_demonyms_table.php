@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('demonyms', function (Blueprint $table) {
             $table->ulid('id')->primary();
-			$table->boolean('female');
+            $table->boolean('female');
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();

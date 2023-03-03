@@ -7,19 +7,19 @@ use JuiceCRM\GeoData\Models\Language;
 
 trait Languages
 {
-	public function storeLanguages(Country $country, array $jsonCountry)
-	{
-		if($jsonCountry && $jsonCountry['languages']) {
-			foreach($jsonCountry['languages'] as $languageKey => $details) {
-				$language = Language::where('iso3-b', $languageKey)
-					->orWhere('iso3-t', $languageKey)
-					->first();
-				if($language && $language->iso2) {
-					$country->languages()->attach($language, [
-						'i18n' => strtolower($language->iso2 . '-' . $country->iso2)
-					]);
-				}
-			}
-		}
-	}
+    public function storeLanguages(Country $country, array $jsonCountry)
+    {
+        if ($jsonCountry && $jsonCountry['languages']) {
+            foreach ($jsonCountry['languages'] as $languageKey => $details) {
+                $language = Language::where('iso3-b', $languageKey)
+                    ->orWhere('iso3-t', $languageKey)
+                    ->first();
+                if ($language && $language->iso2) {
+                    $country->languages()->attach($language, [
+                        'i18n' => strtolower($language->iso2.'-'.$country->iso2),
+                    ]);
+                }
+            }
+        }
+    }
 }

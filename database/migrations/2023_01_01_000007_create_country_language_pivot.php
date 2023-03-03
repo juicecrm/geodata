@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('country_language', function (Blueprint $table) {
             $table->id();
-			$table->foreignUlid('country_id');
-			$table->foreignUlid('language_id');
-			$table->string('i18n', 5);
+            $table->foreignUlid('country_id');
+            $table->foreignUlid('language_id');
+            $table->string('i18n', 5);
         });
     }
 

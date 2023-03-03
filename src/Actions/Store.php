@@ -20,9 +20,9 @@ class Store
     public function __invoke()
     {
         (new Currencies)();
-		(new Demonyms)();
-		(new Languages)();
-		(new Regions)();
-		(new Countries)();	/* Must happen after storing regions */
+        (new Demonyms)();
+        (new Languages)();
+        (new Regions)();
+        (new Countries)();	/* Must happen after storing regions */
     }
 }

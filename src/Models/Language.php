@@ -13,14 +13,12 @@ class Language extends Model
 
     protected $fillable = ['created_at', 'deleted_at', 'iso2', 'iso3-b', 'iso3-t', 'name', 'updated_at'];
 
-	/**
-	 * The Country models to which this Language model belongs.
-	 *
-	 * @return BelongsToMany
-	 */
-	public function countries(): BelongsToMany
-	{
-		return $this->belongsToMany(Country::class)
-			->withPivot(['i18n']);
-	}
+    /**
+     * The Country models to which this Language model belongs.
+     */
+    public function countries(): BelongsToMany
+    {
+        return $this->belongsToMany(Country::class)
+            ->withPivot(['i18n']);
+    }
 }

@@ -7,9 +7,11 @@ use JuiceCRM\GeoData\Models\Region;
 
 class Base
 {
-	protected $jsonCountries = [];
-	protected $jsonCurrencies = [];
-	protected $jsonLanguages = [];
+    protected $jsonCountries = [];
+
+    protected $jsonCurrencies = [];
+
+    protected $jsonLanguages = [];
 
     /**
      * Load the countries from the JSON file.
@@ -22,12 +24,12 @@ class Base
             throw new GeoDataException('Data is not extracted yet.');
         }
 
-		$this->jsonCountries = json_decode(
+        $this->jsonCountries = json_decode(
             file_get_contents(storage_path('app/geodata/extracts/countries-master/countries.json')),
             true
         );
     }
-	
+
     /**
      * Load the currencies from the JSON file.
      *
@@ -39,12 +41,12 @@ class Base
             throw new GeoDataException('Data is not extracted yet.');
         }
 
-		$this->jsonCurrencies = json_decode(
+        $this->jsonCurrencies = json_decode(
             file_get_contents(storage_path('app/geodata/extracts/world-currencies-master/dist/json/currencies.json')),
             true
         );
     }
-	
+
     /**
      * Load the languages from the JSON file.
      *
@@ -56,21 +58,18 @@ class Base
             throw new GeoDataException('Data is not extracted yet.');
         }
 
-		$this->jsonLanguages = json_decode(
+        $this->jsonLanguages = json_decode(
             file_get_contents(storage_path('app/geodata/extracts/language-codes.json')),
             true
         );
     }
 
-	/**
-	 * The Region model with the given name.
-	 *
-	 * @param string $name
-	 * @return Region|null
-	 */
-	protected function region(string $name): ?Region
-	{
-		return $region = Region::whereName($name)
-			->first();
-	}
+    /**
+     * The Region model with the given name.
+     */
+    protected function region(string $name): ?Region
+    {
+        return $region = Region::whereName($name)
+            ->first();
+    }
 }

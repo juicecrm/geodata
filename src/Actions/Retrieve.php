@@ -16,14 +16,14 @@ class Retrieve
     public function __invoke()
     {
         if (! is_dir(storage_path('/app/geodata'))) {
-			mkdir(storage_path('/app/geodata'));
-		}
+            mkdir(storage_path('/app/geodata'));
+        }
         if (! is_dir(storage_path('/app/geodata/downloads'))) {
             mkdir(storage_path('/app/geodata/downloads'));
         }
         if (! is_dir(storage_path('/app/geodata/extracts'))) {
-			mkdir(storage_path('/app/geodata/extracts'));
-		}
+            mkdir(storage_path('/app/geodata/extracts'));
+        }
 
         try {
             $response = Http::connectTimeout(3)
@@ -54,7 +54,5 @@ class Retrieve
         } catch(ConnectionException $ce) {
             throw new GeoDataException('Failed to retrieve the data.');
         }
-
-		
     }
 }

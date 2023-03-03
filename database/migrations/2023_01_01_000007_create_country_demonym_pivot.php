@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('country_demonym', function (Blueprint $table) {
             $table->id();
-			$table->foreignUlid('country_id');
-			$table->foreignUlid('demonym_id');
+            $table->foreignUlid('country_id');
+            $table->foreignUlid('demonym_id');
         });
     }
 
