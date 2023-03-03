@@ -3,7 +3,6 @@
 namespace JuiceCRM\GeoData\Concerns\Actions\Store;
 
 use JuiceCRM\GeoData\Models\Country;
-use JuiceCRM\GeoData\Models\Currency;
 use JuiceCRM\GeoData\Models\Demonym;
 
 trait Demonyms

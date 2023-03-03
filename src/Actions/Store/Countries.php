@@ -5,11 +5,12 @@ namespace JuiceCRM\GeoData\Actions\Store;
 use JuiceCRM\GeoData\Concerns\Actions\Store\Borders;
 use JuiceCRM\GeoData\Concerns\Actions\Store\Currencies;
 use JuiceCRM\GeoData\Concerns\Actions\Store\Demonyms;
+use JuiceCRM\GeoData\Concerns\Actions\Store\Languages;
 use JuiceCRM\GeoData\Models\Country;
 
 class Countries extends Base
 {
-	use Borders, Currencies, Demonyms;
+	use Borders, Currencies, Demonyms, Languages;
 
 	/**
 	 * Store Country models from the JSON file.
@@ -45,6 +46,7 @@ class Countries extends Base
 			$this->storeBorders($country, $jsonCountry);
 			$this->storeCurrencies($country, $jsonCountry);
 			$this->storeDemonyms($country, $jsonCountry);
+			$this->storeLanguages($country, $jsonCountry);
 		}
 	}
 }

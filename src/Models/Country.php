@@ -37,6 +37,17 @@ class Country extends Model
 	}
 
 	/**
+	 * The Language models that belong to this Country model.
+	 *
+	 * @return BelongsToMany
+	 */
+	public function languages(): BelongsToMany
+	{
+		return $this->belongsToMany(Language::class)
+			->withPivot(['i18n']);
+	}
+
+	/**
 	 * The Country models that are a neighbor of this Country model.
 	 *
 	 * @return BelongsToMany
