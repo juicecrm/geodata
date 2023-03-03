@@ -27,6 +27,16 @@ class Country extends Model
 	}
 
 	/**
+	 * The Demonym models that belong to this Country model.
+	 *
+	 * @return BelongsToMany
+	 */
+	public function demonyms(): BelongsToMany
+	{
+		return $this->belongsToMany(Demonym::class);
+	}
+
+	/**
 	 * The Country models that are a neighbor of this Country model.
 	 *
 	 * @return BelongsToMany
