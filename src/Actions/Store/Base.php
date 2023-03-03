@@ -9,6 +9,7 @@ class Base
 {
 	protected $jsonCountries;
 	protected $jsonCurrencies;
+	protected $jsonLanguages;
 	
     /**
      * Load the countries from the JSON file.
@@ -40,6 +41,23 @@ class Base
 
 		$this->jsonCurrencies = json_decode(
             file_get_contents(storage_path('app/geodata/extracts/world-currencies-master/dist/json/currencies.json')),
+            true
+        );
+    }
+	
+    /**
+     * Load the languages from the JSON file.
+     *
+     * @return void
+     */
+    protected function loadJsonLanguages()
+    {
+        if (! file_exists(storage_path('app/geodata/extracts/language-codes.json'))) {
+            throw new GeoDataException('Data is not extracted yet.');
+        }
+
+		$this->jsonLanguages = json_decode(
+            file_get_contents(storage_path('app/geodata/extracts/language-codes.json')),
             true
         );
     }
