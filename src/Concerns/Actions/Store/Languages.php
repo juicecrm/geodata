@@ -14,9 +14,11 @@ trait Languages
 				$language = Language::where('iso3-b', $languageKey)
 					->orWhere('iso3-t', $languageKey)
 					->first();
-				$country->languages()->attach($language, [
-					'i18n' => strtolower($language->iso2 . '-' . $country->iso2)
-				]);
+				if($language && $language->iso2) {
+					$country->languages()->attach($language, [
+						'i18n' => strtolower($language->iso2 . '-' . $country->iso2)
+					]);
+				}
 			}
 		}
 	}
