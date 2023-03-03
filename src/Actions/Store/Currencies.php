@@ -7,7 +7,7 @@ use JuiceCRM\GeoData\Models\Currency;
 class Currencies extends Base
 {
 	/**
-	 * Store Country models from the JSON file.
+	 * Store Currency models from the JSON file.
 	 *
 	 * @return void
 	 */

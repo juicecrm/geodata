@@ -4,6 +4,7 @@ namespace JuiceCRM\GeoData\Actions;
 
 use JuiceCRM\GeoData\Actions\Store\Countries;
 use JuiceCRM\GeoData\Actions\Store\Currencies;
+use JuiceCRM\GeoData\Actions\Store\Demonyms;
 use JuiceCRM\GeoData\Actions\Store\Regions;
 
 class Store
@@ -18,7 +19,8 @@ class Store
     public function __invoke()
     {
         (new Currencies)();
+		(new Demonyms)();
 		(new Regions)();
-		(new Countries)();
+		(new Countries)();	/* Must happen after storing regions */
     }
 }

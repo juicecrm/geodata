@@ -5,12 +5,13 @@ namespace JuiceCRM\GeoData\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Region extends Model
 {
-    use HasUlids;
+    use HasUlids, SoftDeletes;
 
-    protected $fillable = ['name', 'parent_region_id'];
+    protected $fillable = ['created_at', 'deleted_at', 'name', 'parent_region_id', 'updated_at'];
 
     /**
      * The Region model that is the parent of this Region model.
