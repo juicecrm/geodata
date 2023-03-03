@@ -7,10 +7,28 @@ use JuiceCRM\GeoData\Models\Region;
 
 class Base
 {
-	protected $jsonCountries;
-	protected $jsonCurrencies;
-	protected $jsonLanguages;
-	
+	protected $jsonCountries = [];
+	protected $jsonCurrencies = [];
+	protected $jsonLanguages = [];
+
+	/**
+	 * The JSON representation for the country identified by $iso3.
+	 *
+	 * @param string $iso3
+	 * @return array
+	 */
+	protected function jsonCountry(string $iso3): array
+	{
+		$iso3Lowercase = strtolower($iso3);
+		foreach($this->jsonCountries as $jsonCountry) {
+			if(strtolower($jsonCountry['cca3']) === $iso3Lowercase) {
+				return $jsonCountry;
+			}
+		}
+
+		return [];
+	}
+
     /**
      * Load the countries from the JSON file.
      *
