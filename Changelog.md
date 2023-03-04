@@ -3,16 +3,12 @@ All notable changes to this package will be documented in this file.
 
 ## [Unreleased]
 ### Added
-- Countries, Languages, Demonyms, Regions and Currencies as Laravel models with their associated database tables.
+- N/A
 ### Changed
 - N/A
 ### Fixed
 - N/A
 
-## [SemanticVersion] - ReleaseDateDD-MMM-YYYY
+## [1.0.0] - 04 Mar 2023
 ### Added
-- N/A
-### Changed
-- N/A
-### Fixed
-- N/A
+- Countries, Languages, Demonyms, Regions and Currencies as Laravel models with their associated database tables.
