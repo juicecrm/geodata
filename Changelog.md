@@ -9,6 +9,10 @@ All notable changes to this package will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.0.1] - 04 Mar 2023
+### Changed
+- README.md updated with instructions
+
 ## [1.0.0] - 04 Mar 2023
 ### Added
 - Countries, Languages, Demonyms, Regions and Currencies as Laravel models with their associated database tables.
