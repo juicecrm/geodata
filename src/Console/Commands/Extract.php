@@ -26,7 +26,7 @@ class Extract extends Command
 
         try {
             (new ExtractAction)();
-        } catch(Throwable $t) {
+        } catch (Throwable $t) {
             $this->components->error('Failed to extract geographical data.');
 
             return Command::FAILURE;

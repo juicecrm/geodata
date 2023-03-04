@@ -31,7 +31,7 @@ class Retrieve
                 ->throw()
                 ->get('https://github.com/mledoze/countries/archive/master.zip');
             file_put_contents(storage_path('app/geodata/downloads/countries-master.zip'), $response->getBody());
-        } catch(ConnectionException $ce) {
+        } catch (ConnectionException $ce) {
             throw new GeoDataException('Failed to retrieve the data.');
         }
 
@@ -41,7 +41,7 @@ class Retrieve
                 ->throw()
                 ->get('https://github.com/antonioribeiro/world-currencies/archive/master.zip');
             file_put_contents(storage_path('app/geodata/downloads/world-currencies.zip'), $response->getBody());
-        } catch(ConnectionException $ce) {
+        } catch (ConnectionException $ce) {
             throw new GeoDataException('Failed to retrieve the data.');
         }
 
@@ -51,7 +51,7 @@ class Retrieve
                 ->throw()
                 ->get('https://datahub.io/core/language-codes/r/language-codes-full.json');
             file_put_contents(storage_path('app/geodata/extracts/language-codes.json'), $response->getBody());
-        } catch(ConnectionException $ce) {
+        } catch (ConnectionException $ce) {
             throw new GeoDataException('Failed to retrieve the data.');
         }
     }

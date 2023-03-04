@@ -26,7 +26,7 @@ class Retrieve extends Command
 
         try {
             (new RetrieveAction)();
-        } catch(Throwable $t) {
+        } catch (Throwable $t) {
             $this->components->error('Failed to retrieve i18n data.');
 
             return Command::FAILURE;
