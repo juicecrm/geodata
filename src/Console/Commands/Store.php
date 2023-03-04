@@ -26,7 +26,7 @@ class Store extends Command
 
         try {
             (new StoreAction)();
-        } catch(Throwable $t) {
+        } catch (Throwable $t) {
             $this->components->error('Failed to store geographical data.');
 
             return Command::FAILURE;

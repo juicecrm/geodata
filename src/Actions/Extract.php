@@ -26,7 +26,7 @@ class Extract
     }
 
     /**
-     * Unzip all downloaded archives
+     * Unzip all downloaded archives.
      *
      * @return void
      */
@@ -37,7 +37,7 @@ class Extract
     }
 
     /**
-     * Unzip the countries-master.zip
+     * Unzip the countries-master.zip.
      *
      * @return void
      */
@@ -55,7 +55,7 @@ class Extract
     }
 
     /**
-     * Unzip the countries-master.zip
+     * Unzip the countries-master.zip.
      *
      * @return void
      */
