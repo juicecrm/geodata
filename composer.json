@@ -2,7 +2,7 @@
     "name": "juicecrm/geodata",
     "description": "Geographical Data for Laravel 10 and later",
     "type": "library",
-    "license": "GLPv3",
+    "license": "GPL-3.0-only",
     "autoload": {
         "psr-4": {
             "JuiceCRM\\GeoData\\": "src/"
