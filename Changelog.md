@@ -9,6 +9,10 @@ All notable changes to this package will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.1.0] - 05 Mar 2023
+### Added
+- Add geodata.php configuration and recognize table_prefix configuration setting
+
 ## [1.0.1] - 04 Mar 2023
 ### Changed
 - README.md updated with instructions
