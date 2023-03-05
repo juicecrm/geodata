@@ -17,18 +17,18 @@ return new class extends Migration
             $table->foreignUlid('currency_id');
         });
 
-		Schema::table(config('geodata.table_prefix').'country_currency', function (Blueprint $table) {
+        Schema::table(config('geodata.table_prefix').'country_currency', function (Blueprint $table) {
             $table->foreign('country_id')
-				->references('id')
-				->on(config('geodata.table_prefix').'countries')
-				->restrictOnDelete()
-				->restrictOnUpdate();
-			$table->foreign('currency_id')
-				->references('id')
-				->on(config('geodata.table_prefix').'currencies')
-				->restrictOnDelete()
-				->restrictOnUpdate();
-		});
+                ->references('id')
+                ->on(config('geodata.table_prefix').'countries')
+                ->restrictOnDelete()
+                ->restrictOnUpdate();
+            $table->foreign('currency_id')
+                ->references('id')
+                ->on(config('geodata.table_prefix').'currencies')
+                ->restrictOnDelete()
+                ->restrictOnUpdate();
+        });
     }
 
     /**
