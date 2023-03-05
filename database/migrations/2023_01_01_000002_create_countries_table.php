@@ -38,7 +38,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        Schema::table('countries', function (Blueprint $table) {
+        Schema::table(config('geodata.table_prefix').'countries', function (Blueprint $table) {
             $table->foreign('region_id')
                 ->references('id')
                 ->on(config('geodata.table_prefix').'regions')
