@@ -11,18 +11,18 @@ class Language extends Model
 {
     use HasUlids, SoftDeletes;
 
-	/**
-	 * @inheritDoc
-	 */
+    /**
+     * @inheritDoc
+     */
     protected $fillable = ['created_at', 'deleted_at', 'iso2', 'iso3-b', 'iso3-t', 'name', 'updated_at'];
 
-	/**
-	 * @inheritDoc
-	 */
-	public function getTable()
-	{
-		return config('geodata.table_prefix').'languages';
-	}
+    /**
+     * @inheritDoc
+     */
+    public function getTable()
+    {
+        return config('geodata.table_prefix').'languages';
+    }
 
     /**
      * The Country models to which this Language model belongs.

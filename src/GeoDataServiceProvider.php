@@ -25,7 +25,7 @@ class GeoDataServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-        	__DIR__.'/../config/geodata.php' => base_path('config/geodata.php'),
+            __DIR__.'/../config/geodata.php' => base_path('config/geodata.php'),
         ], 'config');
 
         /*

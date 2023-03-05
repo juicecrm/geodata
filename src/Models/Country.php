@@ -11,21 +11,21 @@ class Country extends Model
 {
     use HasUlids, SoftDeletes;
 
-	/**
-	 * @inheritDoc
-	 */
+    /**
+     * @inheritDoc
+     */
     protected $fillable = [
         'capital', 'common', 'created_at', 'deleted_at', 'independent', 'iso2', 'iso3', 'landlocked', 'latitude',
         'longitude', 'numeric', 'official', 'region_id', 'status', 'updated_at',
     ];
 
-	/**
-	 * @inheritDoc
-	 */
-	public function getTable()
-	{
-		return config('geodata.table_prefix').'countries';
-	}
+    /**
+     * @inheritDoc
+     */
+    public function getTable()
+    {
+        return config('geodata.table_prefix').'countries';
+    }
 
     /**
      * The Currency models that belong to this Country model.

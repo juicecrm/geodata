@@ -17,18 +17,18 @@ return new class extends Migration
             $table->foreignUlid('neighbor_country_id');
         });
 
-		Schema::table(config('geodata.table_prefix').'country_country', function (Blueprint $table) {
+        Schema::table(config('geodata.table_prefix').'country_country', function (Blueprint $table) {
             $table->foreign('country_id')
-				->references('id')
-				->on(config('geodata.table_prefix').'countries')
-				->restrictOnDelete()
-				->restrictOnUpdate();
-				
-			$table->foreign('neighbor_country_id')
-				->references('id')
-				->on(config('geodata.table_prefix').'countries')
-				->restrictOnDelete()
-				->restrictOnUpdate();
+                ->references('id')
+                ->on(config('geodata.table_prefix').'countries')
+                ->restrictOnDelete()
+                ->restrictOnUpdate();
+
+            $table->foreign('neighbor_country_id')
+                ->references('id')
+                ->on(config('geodata.table_prefix').'countries')
+                ->restrictOnDelete()
+                ->restrictOnUpdate();
         });
     }
 
