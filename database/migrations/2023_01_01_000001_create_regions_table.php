@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('regions', function (Blueprint $table) {
+        Schema::create(config('geodata.table_prefix').'regions', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->foreignUlid('parent_region_id')
                 ->nullable();
@@ -20,10 +20,10 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        Schema::table('regions', function (Blueprint $table) {
+        Schema::table(config('geodata.table_prefix').'regions', function (Blueprint $table) {
             $table->foreign('parent_region_id')
                 ->references('id')
-                ->on('regions')
+                ->on(config('geodata.table_prefix').'regions')
                 ->restrictOnDelete()
                 ->restrictOnUpdate();
         });
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regions');
+        Schema::dropIfExists(config('geodata.table_prefix').'regions');
     }
 };

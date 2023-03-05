@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('currencies', function (Blueprint $table) {
+        Schema::create(config('geodata.table_prefix').'currencies', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('iso3', 3);
             $table->string('major_name')->default('');
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('currencies');
+        Schema::dropIfExists(config('geodata.table_prefix').'currencies');
     }
 };

@@ -11,7 +11,18 @@ class Demonym extends Model
 {
     use HasUlids, SoftDeletes;
 
+	/**
+	 * @inheritDoc
+	 */
     protected $fillable = ['created_at', 'deleted_at', 'female', 'name', 'updated_at'];
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getTable()
+	{
+		return config('geodata.table_prefix').'demonyms';
+	}
 
     /**
      * The Country models to which this Demonym model belongs.

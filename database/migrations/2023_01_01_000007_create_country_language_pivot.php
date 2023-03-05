@@ -11,12 +11,25 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('country_language', function (Blueprint $table) {
+        Schema::create(config('geodata.table_prefix').'country_language', function (Blueprint $table) {
             $table->id();
             $table->foreignUlid('country_id');
             $table->foreignUlid('language_id');
             $table->string('i18n', 5);
         });
+
+		Schema::table(config('geodata.table_prefix').'country_currency', function (Blueprint $table) {
+            $table->foreign('country_id')
+				->references('id')
+				->on(config('geodata.table_prefix').'countries')
+				->restrictOnDelete()
+				->restrictOnUpdate();
+			$table->foreign('language_id')
+				->references('id')
+				->on(config('geodata.table_prefix').'languages')
+				->restrictOnDelete()
+				->restrictOnUpdate();
+		});
     }
 
     /**
@@ -24,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('country_language');
+        Schema::dropIfExists(config('geodata.table_prefix').'country_language');
     }
 };

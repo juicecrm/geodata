@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('languages', function (Blueprint $table) {
+        Schema::create(config('geodata.table_prefix').'languages', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('iso2', 2)
                 ->nullable();
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('languages');
+        Schema::dropIfExists(config('geodata.table_prefix').'languages');
     }
 };
