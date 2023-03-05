@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('i18n', 5);
         });
 
-        Schema::table(config('geodata.table_prefix').'country_currency', function (Blueprint $table) {
+        Schema::table(config('geodata.table_prefix').'country_language', function (Blueprint $table) {
             $table->foreign('country_id')
                 ->references('id')
                 ->on(config('geodata.table_prefix').'countries')

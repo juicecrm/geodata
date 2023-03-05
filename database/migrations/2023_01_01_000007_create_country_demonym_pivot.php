@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignUlid('demonym_id');
         });
 
-        Schema::table(config('geodata.table_prefix').'country_currency', function (Blueprint $table) {
+        Schema::table(config('geodata.table_prefix').'country_demonym', function (Blueprint $table) {
             $table->foreign('country_id')
                 ->references('id')
                 ->on(config('geodata.table_prefix').'countries')
