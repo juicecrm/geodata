@@ -9,6 +9,11 @@ All notable changes to this package will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.1.3] - 09 Mar 2023
+### Changed
+- Fix typo in column ID
+- Fix migration file names
+
 ## [1.1.2] - 05 Mar 2023
 ### Changed
 - Use correct table names in migrations
