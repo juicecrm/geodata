@@ -23,7 +23,7 @@ return new class extends Migration
                 ->on(config('geodata.table_prefix').'countries')
                 ->restrictOnDelete()
                 ->restrictOnUpdate();
-            $table->foreign('demonymm_id')
+            $table->foreign('demonym_id')
                 ->references('id')
                 ->on(config('geodata.table_prefix').'demonyms')
                 ->restrictOnDelete()
