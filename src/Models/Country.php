@@ -58,7 +58,7 @@ class Country extends Model
     public function neighbors(): BelongsToMany
     {
         return $this->belongsToMany(Country::class, config('geodata.table_prefix').'country_country', 'country_id',
-			'neighbor_country_id');
+            'neighbor_country_id');
     }
 
     /**
@@ -67,6 +67,6 @@ class Country extends Model
     public function neighborsOf(): BelongsToMany
     {
         return $this->belongsToMany(Country::class, config('geodata.table_prefix').'country_country',
-			'neighbor_country_id', 'country_id');
+            'neighbor_country_id', 'country_id');
     }
 }
