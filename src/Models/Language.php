@@ -29,7 +29,7 @@ class Language extends Model
      */
     public function countries(): BelongsToMany
     {
-        return $this->belongsToMany(Country::class)
+        return $this->belongsToMany(Country::class, config('geodata.table_prefix').'country_language')
             ->withPivot(['i18n']);
     }
 }

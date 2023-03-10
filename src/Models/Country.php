@@ -32,7 +32,7 @@ class Country extends Model
      */
     public function currencies(): BelongsToMany
     {
-        return $this->belongsToMany(Currency::class);
+        return $this->belongsToMany(Currency::class, config('geodata.table_prefix').'country_currency');
     }
 
     /**
@@ -40,7 +40,7 @@ class Country extends Model
      */
     public function demonyms(): BelongsToMany
     {
-        return $this->belongsToMany(Demonym::class);
+        return $this->belongsToMany(Demonym::class, config('geodata.table_prefix').'country_demonym');
     }
 
     /**
@@ -48,7 +48,7 @@ class Country extends Model
      */
     public function languages(): BelongsToMany
     {
-        return $this->belongsToMany(Language::class)
+        return $this->belongsToMany(Language::class, config('geodata.table_prefix').'country_language')
             ->withPivot(['i18n']);
     }
 
@@ -57,7 +57,8 @@ class Country extends Model
      */
     public function neighbors(): BelongsToMany
     {
-        return $this->belongsToMany(Country::class, null, 'country_id', 'neighbor_country_id');
+        return $this->belongsToMany(Country::class, config('geodata.table_prefix').'country_country', 'country_id',
+			'neighbor_country_id');
     }
 
     /**
@@ -65,6 +66,7 @@ class Country extends Model
      */
     public function neighborsOf(): BelongsToMany
     {
-        return $this->belongsToMany(Country::class, null, 'neighbor_country_id', 'country_id');
+        return $this->belongsToMany(Country::class, config('geodata.table_prefix').'country_country',
+			'neighbor_country_id', 'country_id');
     }
 }

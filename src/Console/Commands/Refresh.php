@@ -25,7 +25,7 @@ class Refresh extends Command
 
         $this->retrieveGeoData();
 
-        $this->compileGeoData();
+        $this->extractGeoData();
 
         $this->storeGeoData();
 
