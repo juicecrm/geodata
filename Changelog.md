@@ -9,6 +9,10 @@ All notable changes to this package will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.1.4] - 10 Mar 2023
+### Changed
+- Fix pivot table names for many-to-many relations
+- Update Refresh to use correct functions
 ## [1.1.3] - 09 Mar 2023
 ### Changed
 - Fix typo in column ID
