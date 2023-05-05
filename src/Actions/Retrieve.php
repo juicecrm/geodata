@@ -35,15 +35,15 @@ class Retrieve
             throw new GeoDataException('Failed to retrieve the data. '.__LINE__);
         }
 
-		try {
-			$response = Http::connectTimeout(3)
-				->timeout(120)
-				->throw()
-				->get('https://github.com/rinvex/countries/archive/master.zip');
-			file_put_contents(storage_path('app/geodata/downloads/rinvex-countries-master.zip'), $response->getBody());
-		} catch (ConnectionException $ce) {
-			throw new GeoDataException('Failed to retrieve the data. '.__LINE__);
-		}
+        try {
+            $response = Http::connectTimeout(3)
+                ->timeout(120)
+                ->throw()
+                ->get('https://github.com/rinvex/countries/archive/master.zip');
+            file_put_contents(storage_path('app/geodata/downloads/rinvex-countries-master.zip'), $response->getBody());
+        } catch (ConnectionException $ce) {
+            throw new GeoDataException('Failed to retrieve the data. '.__LINE__);
+        }
 
         try {
             $response = Http::connectTimeout(3)
@@ -52,7 +52,7 @@ class Retrieve
                 ->get('https://github.com/antonioribeiro/world-currencies/archive/master.zip');
             file_put_contents(storage_path('app/geodata/downloads/world-currencies.zip'), $response->getBody());
         } catch (ConnectionException $ce) {
-			throw new GeoDataException('Failed to retrieve the data. '.__LINE__);
+            throw new GeoDataException('Failed to retrieve the data. '.__LINE__);
         }
 
         try {
@@ -62,7 +62,7 @@ class Retrieve
                 ->get('https://datahub.io/core/language-codes/r/language-codes-full.json');
             file_put_contents(storage_path('app/geodata/extracts/language-codes.json'), $response->getBody());
         } catch (ConnectionException $ce) {
-			throw new GeoDataException('Failed to retrieve the data. '.__LINE__);
+            throw new GeoDataException('Failed to retrieve the data. '.__LINE__);
         }
     }
 }
