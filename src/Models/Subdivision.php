@@ -22,7 +22,7 @@ class Subdivision extends Model
      */
     public function getTable()
     {
-        return config('geodata.table_prefix').'countries';
+        return config('geodata.table_prefix').'subdivisions';
     }
 
     /**
