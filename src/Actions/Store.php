@@ -25,6 +25,6 @@ class Store
         (new Languages)();
         (new Regions)();
         (new Countries)();	/* Must happen after storing regions */
-		(new Subdivisions)(); /* Must happen after storing countries */
+        (new Subdivisions)(); /* Must happen after storing countries */
     }
 }

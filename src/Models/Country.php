@@ -72,18 +72,18 @@ class Country extends Model
             'neighbor_country_id', 'country_id');
     }
 
-	/**
-	 * The Region model to which this country belongs.
-	 *
-	 * @return BelongsTo
-	 */
-	public function region(): BelongsTo
-	{
-		return $this->belongsTo(Region::class);
-	}
+    /**
+     * The Region model to which this country belongs.
+     *
+     * @return BelongsTo
+     */
+    public function region(): BelongsTo
+    {
+        return $this->belongsTo(Region::class);
+    }
 
-	public function subdivisions(): HasMany
-	{
-		return $this->hasMany(Subdivision::class);
-	}
+    public function subdivisions(): HasMany
+    {
+        return $this->hasMany(Subdivision::class);
+    }
 }

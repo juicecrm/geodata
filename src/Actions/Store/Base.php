@@ -65,25 +65,26 @@ class Base
         );
     }
 
-	/**
-	 * Load the divisions file for the country identified by $iso2.
-	 *
-	 * @param string $iso2
-	 * @return array
-	 * @throws GeoDataException
-	 */
-	protected function loadJsonSubdivisions(Country $country): array
-	{
-		if(! file_exists(storage_path('app/geodata/extracts/rinvex-countries-master/countries-master/resources/divisions/'.$country->iso2.'.json'))) {
-			return [];
-		}
+    /**
+     * Load the divisions file for the country identified by $iso2.
+     *
+     * @param  string  $iso2
+     * @return array
+     *
+     * @throws GeoDataException
+     */
+    protected function loadJsonSubdivisions(Country $country): array
+    {
+        if (! file_exists(storage_path('app/geodata/extracts/rinvex-countries-master/countries-master/resources/divisions/'.$country->iso2.'.json'))) {
+            return [];
+        }
 
-		return json_decode(
-			file_get_contents(
-				storage_path('app/geodata/extracts/rinvex-countries-master/countries-master/resources/divisions/'.$country->iso2.'.json')
-			)
-		);
-	}
+        return json_decode(
+            file_get_contents(
+                storage_path('app/geodata/extracts/rinvex-countries-master/countries-master/resources/divisions/'.$country->iso2.'.json')
+            )
+        );
+    }
 
     /**
      * The Region model with the given name.
