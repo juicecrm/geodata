@@ -7,7 +7,7 @@ All notable changes to this package will be documented in this file.
 ### Changed
 - N/A
 ### Fixed
-- N/A
+- Fixed subdivisions foreign constraint migration.
 
 ## [1.2.0] - 5 May 2023
 ### Added
