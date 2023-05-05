@@ -76,7 +76,7 @@ class Base
      */
     protected function loadJsonSubdivisions(Country $country): array
     {
-		$iso2 = Str::lower($country->iso2);
+        $iso2 = Str::lower($country->iso2);
         if (! file_exists(storage_path('app/geodata/extracts/rinvex-countries-master/countries-master/resources/divisions/'.$iso2.'.json'))) {
             return [];
         }

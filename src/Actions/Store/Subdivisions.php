@@ -17,17 +17,17 @@ class Subdivisions extends Base
         $countries = Country::all();
         foreach ($countries as $country) {
             $subdivisionJson = $this->loadJsonSubdivisions($country);
-			if($subdivisionJson) {
-				foreach($subdivisionJson as $subdivisionKey => $subdivision) {
-					if($subdivision['name'] && $subdivisionKey) {
-						Subdivision::firstOrCreate([
-							'country_id' => $country->id,
-							'key' => $subdivisionKey,
-							'name' => $subdivision['name'],
-						]);
-					}
-				}
-			}
+            if ($subdivisionJson) {
+                foreach ($subdivisionJson as $subdivisionKey => $subdivision) {
+                    if ($subdivision['name'] && $subdivisionKey) {
+                        Subdivision::firstOrCreate([
+                            'country_id' => $country->id,
+                            'key' => $subdivisionKey,
+                            'name' => $subdivision['name'],
+                        ]);
+                    }
+                }
+            }
         }
     }
 }

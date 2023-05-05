@@ -52,11 +52,11 @@ class GeoDataTest extends TestCase
             $this->assertEquals('good', $e->getMessage());
         }
 
-		$this->assertGreaterThan(0, Country::all()->count());
-		$this->assertGreaterThan(0, Currency::all()->count());
-		$this->assertGreaterThan(0, Demonym::all()->count());
-		$this->assertGreaterThan(0, Language::all()->count());
-		$this->assertGreaterThan(0, Region::all()->count());
-		$this->assertGreaterThan(0, Subdivision::all()->count());
+        $this->assertGreaterThan(0, Country::all()->count());
+        $this->assertGreaterThan(0, Currency::all()->count());
+        $this->assertGreaterThan(0, Demonym::all()->count());
+        $this->assertGreaterThan(0, Language::all()->count());
+        $this->assertGreaterThan(0, Region::all()->count());
+        $this->assertGreaterThan(0, Subdivision::all()->count());
     }
 }
