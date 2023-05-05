@@ -9,6 +9,9 @@ All notable changes to this package will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.2.0] - 5 May 2023
+### Added
+- Support for country subdivisions
 ## [1.1.4] - 10 Mar 2023
 ### Changed
 - Fix pivot table names for many-to-many relations
