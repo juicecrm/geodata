@@ -14,13 +14,14 @@ class Extract
      */
     public function __invoke()
     {
-        if (! file_exists(storage_path('app/geodata/downloads/countries-master.zip'))) {
+        if (! file_exists(storage_path('app/geodata/downloads/mledoze-countries-master.zip'))) {
             throw new GeoDataException('Data is not downloaded yet.');
         }
 
         $this->unzipDownloadedData();
 
-        unlink(storage_path('app/geodata/downloads/countries-master.zip'));
+        unlink(storage_path('app/geodata/downloads/mledoze-countries-master.zip'));
+		unlink(storage_path('app/geodata/downloads/rinvex-countries-master.zip'));
         unlink(storage_path('app/geodata/downloads/world-currencies.zip'));
         rmdir(storage_path('app/geodata/downloads'));
     }
@@ -44,14 +45,24 @@ class Extract
     protected function unzipCountriesMaster()
     {
         $zipArchive = new ZipArchive();
-        if ($zipArchive->open(storage_path('app/geodata/downloads/countries-master.zip'))) {
-            if (! $zipArchive->extractTo(storage_path('/app/geodata/extracts'))) {
+        if ($zipArchive->open(storage_path('app/geodata/downloads/mledoze-countries-master.zip'))) {
+            if (! $zipArchive->extractTo(storage_path('/app/geodata/extracts/mledoze-countries-master'))) {
                 throw new GeoDataException('Could not unzip the downloaded data.');
             }
             $zipArchive->close();
         } else {
             throw new GeoDataException('Could not unzip the downloaded data.');
         }
+
+		$zipArchive = new ZipArchive();
+		if ($zipArchive->open(storage_path('app/geodata/downloads/rinvex-countries-master.zip'))) {
+			if (! $zipArchive->extractTo(storage_path('/app/geodata/extracts/rinvex-countries-master'))) {
+				throw new GeoDataException('Could not unzip the downloaded data.');
+			}
+			$zipArchive->close();
+		} else {
+			throw new GeoDataException('Could not unzip the downloaded data.');
+		}
     }
 
     /**
