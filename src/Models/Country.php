@@ -4,7 +4,9 @@ namespace JuiceCRM\GeoData\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Country extends Model
@@ -68,5 +70,20 @@ class Country extends Model
     {
         return $this->belongsToMany(Country::class, config('geodata.table_prefix').'country_country',
             'neighbor_country_id', 'country_id');
+    }
+
+    /**
+     * The Region model to which this country belongs.
+     *
+     * @return BelongsTo
+     */
+    public function region(): BelongsTo
+    {
+        return $this->belongsTo(Region::class);
+    }
+
+    public function subdivisions(): HasMany
+    {
+        return $this->hasMany(Subdivision::class);
     }
 }

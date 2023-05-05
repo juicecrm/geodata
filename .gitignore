@@ -1,4 +1,5 @@
 code-coverage
+.idea
 tests/.phpunit.cache
 vendor
 composer.lock

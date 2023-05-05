@@ -1,37 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         bootstrap="vendor/autoload.php"
-		 backupGlobals="false"
-		 colors="true"
-		 processIsolation="false"
-		 stopOnFailure="false"
-		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
-		 cacheDirectory="tests/.phpunit.cache"
-		 backupStaticProperties="false">
-	<testsuites>
-		<testsuite name="JuiceCRM GeoData Test Suite">
-			<directory>tests</directory>
-		</testsuite>
-	</testsuites>
-	<coverage includeUncoveredFiles="true"
-        	  pathCoverage="false"
-        	  ignoreDeprecatedCodeUnits="true"
-        	  disableCodeCoverageIgnore="true">
-		<include>
-			<directory suffix=".php">src</directory>
-		</include>
-		<report>
-			<clover outputFile="code-coverage/clover.xml"/>
-			<cobertura outputFile="code-coverage/cobertura.xml"/>
-			<crap4j outputFile="code-coverage/crap4j.xml" threshold="50"/>
-			<html outputDirectory="code-coverage/html-coverage" lowUpperBound="50" highLowerBound="90"/>
-			<php outputFile="code-coverage/coverage.php"/>
-			<text outputFile="code-coverage/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
-			<xml outputDirectory="code-coverage/xml-coverage"/>
-		</report>
-	</coverage>
-	<php>
-    	<server name="APP_DEBUG" value="1"/>
-	    <server name="APP_ENV" value="testing"/>
-	</php>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" backupGlobals="false" colors="true" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd" cacheDirectory="tests/.phpunit.cache" backupStaticProperties="false">
+  <testsuites>
+    <testsuite name="JuiceCRM GeoData Test Suite">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
+  <coverage includeUncoveredFiles="true" pathCoverage="false" ignoreDeprecatedCodeUnits="true" disableCodeCoverageIgnore="true">
+    <report>
+      <clover outputFile="code-coverage/clover.xml"/>
+      <cobertura outputFile="code-coverage/cobertura.xml"/>
+      <crap4j outputFile="code-coverage/crap4j.xml" threshold="50"/>
+      <html outputDirectory="code-coverage/html-coverage" lowUpperBound="50" highLowerBound="90"/>
+      <php outputFile="code-coverage/coverage.php"/>
+      <text outputFile="code-coverage/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
+      <xml outputDirectory="code-coverage/xml-coverage"/>
+    </report>
+  </coverage>
+  <php>
+    <server name="APP_DEBUG" value="1"/>
+    <server name="APP_ENV" value="testing"/>
+    <server name="DB_CONNECTION" value="testing"/>
+  </php>
+  <source>
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+  </source>
 </phpunit>

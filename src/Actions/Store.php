@@ -7,6 +7,7 @@ use JuiceCRM\GeoData\Actions\Store\Currencies;
 use JuiceCRM\GeoData\Actions\Store\Demonyms;
 use JuiceCRM\GeoData\Actions\Store\Languages;
 use JuiceCRM\GeoData\Actions\Store\Regions;
+use JuiceCRM\GeoData\Actions\Store\Subdivisions;
 
 class Store
 {
@@ -24,5 +25,6 @@ class Store
         (new Languages)();
         (new Regions)();
         (new Countries)();	/* Must happen after storing regions */
+        (new Subdivisions)(); /* Must happen after storing countries */
     }
 }
