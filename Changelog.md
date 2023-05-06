@@ -7,7 +7,7 @@ All notable changes to this package will be documented in this file.
 ### Changed
 - N/A
 ### Fixed
-- Fixed subdivisions foreign constraint migration.
+- Fixed subdivisions data storage
 
 ## [1.2.1] - 5 May 2023
 ### Fixed
