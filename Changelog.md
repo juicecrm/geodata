@@ -9,6 +9,9 @@ All notable changes to this package will be documented in this file.
 ### Fixed
 - Fixed subdivisions foreign constraint migration.
 
+## [1.2.1] - 5 May 2023
+### Fixed
+- Fixed subdivisions foreign constraint migration.
 ## [1.2.0] - 5 May 2023
 ### Added
 - Support for country subdivisions
