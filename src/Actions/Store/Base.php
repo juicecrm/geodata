@@ -2,6 +2,7 @@
 
 namespace JuiceCRM\GeoData\Actions\Store;
 
+use Illuminate\Support\Str;
 use JuiceCRM\GeoData\Exceptions\GeoDataException;
 use JuiceCRM\GeoData\Models\Country;
 use JuiceCRM\GeoData\Models\Region;
@@ -68,21 +69,22 @@ class Base
     /**
      * Load the divisions file for the country identified by $iso2.
      *
-     * @param  string  $iso2
+     * @param  Country  $country
      * @return array
      *
      * @throws GeoDataException
      */
     protected function loadJsonSubdivisions(Country $country): array
     {
-        if (! file_exists(storage_path('app/geodata/extracts/rinvex-countries-master/countries-master/resources/divisions/'.$country->iso2.'.json'))) {
+        $iso2 = Str::lower($country->iso2);
+        if (! file_exists(storage_path('app/geodata/extracts/rinvex-countries-master/countries-master/resources/divisions/'.$iso2.'.json'))) {
             return [];
         }
 
         return json_decode(
             file_get_contents(
-                storage_path('app/geodata/extracts/rinvex-countries-master/countries-master/resources/divisions/'.$country->iso2.'.json')
-            )
+                storage_path('app/geodata/extracts/rinvex-countries-master/countries-master/resources/divisions/'.$iso2.'.json')
+            ), true
         );
     }
 
