@@ -9,6 +9,9 @@ All notable changes to this package will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.2.3] - 22 Jul 2023
+### Fixed
+- Two relationship in the `Region` model did not return a value
 ## [1.2.2] - 6 May 2023
 ### Fixed
 - Fixed subdivisions data storage
