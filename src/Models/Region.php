@@ -29,7 +29,7 @@ class Region extends Model
      */
     public function parentRegion(): BelongsTo
     {
-        $this->belongsTo(Region::class, 'parent_region_id');
+        return $this->belongsTo(Region::class, 'parent_region_id');
     }
 
     /**
@@ -37,6 +37,6 @@ class Region extends Model
      */
     public function childRegions(): HasMany
     {
-        $this->hasMany(Region::class, 'parent_region_id');
+        return $this->hasMany(Region::class, 'parent_region_id');
     }
 }
