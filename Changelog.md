@@ -9,6 +9,11 @@ All notable changes to this package will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.3.0] - 12 Aug 2023
+### Added
+- E.164 International Direct Dialing support
+### Changed
+- Database migrations now use clearer style of defining for foreignUilds
 ## [1.2.3] - 22 Jul 2023
 ### Fixed
 - Two relationship in the `Region` model did not return a value
