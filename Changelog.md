@@ -9,6 +9,9 @@ All notable changes to this package will be documented in this file.
 ### Fixed
 - N/A
 
+## [1.3.1] - 12 Aug 2023
+### Fixed
+- Set table names in the new models
 ## [1.3.0] - 12 Aug 2023
 ### Added
 - E.164 International Direct Dialing support
