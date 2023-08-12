@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create(config('geodata.table_prefix').'countries', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->foreignUlid('region_id')
-                ->nullable();
+                ->nullable()
+                ->references('id')
+                ->on(config('geodata.table_prefix').'regions')
+                ->restrictOnDelete()
+                ->restrictOnUpdate();
             $table->string('capital')
                 ->nullable();
             $table->string('common')
@@ -36,14 +40,6 @@ return new class extends Migration
                 ->nullable();
             $table->timestamps();
             $table->softDeletes();
-        });
-
-        Schema::table(config('geodata.table_prefix').'countries', function (Blueprint $table) {
-            $table->foreign('region_id')
-                ->references('id')
-                ->on(config('geodata.table_prefix').'regions')
-                ->restrictOnDelete()
-                ->restrictOnUpdate();
         });
     }
 
