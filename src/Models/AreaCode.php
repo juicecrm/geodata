@@ -13,6 +13,11 @@ class AreaCode extends Model
 
     protected $fillable = ['area_code', 'e164_country_code_id'];
 
+    public function getTable()
+    {
+        return config('geodata.table_prefix').'area_codes';
+    }
+
     public function e164CountryCode(): BelongsTo
     {
         return $this->belongsTo(E164CountryCode::class);
