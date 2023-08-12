@@ -14,6 +14,14 @@ class E164CountryCode extends Model
 
     protected $fillable = ['country_id', 'country_code'];
 
+    /**
+     * @inheritDoc
+     */
+    public function getTable()
+    {
+        return config('geodata.table_prefix').'e164_country_codes';
+    }
+
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
