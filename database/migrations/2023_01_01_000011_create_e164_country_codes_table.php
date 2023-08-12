@@ -11,18 +11,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create(config('geodata.table_prefix').'country_country', function (Blueprint $table) {
-            $table->id();
+        Schema::create(config('geodata.table_prefix').'e164_country_codes', function (Blueprint $table) {
+            $table->ulid('id')->primary();
             $table->foreignUlid('country_id')
                 ->references('id')
                 ->on(config('geodata.table_prefix').'countries')
                 ->restrictOnDelete()
                 ->restrictOnUpdate();
-            $table->foreignUlid('neighbor_country_id')
-                ->references('id')
-                ->on(config('geodata.table_prefix').'countries')
-                ->restrictOnDelete()
-                ->restrictOnUpdate();
+            $table->string('country_code');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('geodata.table_prefix').'country_country');
+        Schema::dropIfExists(config('geodata.table_prefix').'countries');
     }
 };

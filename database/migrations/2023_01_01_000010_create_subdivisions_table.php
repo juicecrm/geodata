@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create(config('geodata.table_prefix').'subdivisions', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->foreignUlid('country_id');
+            $table->foreignUlid('country_id')
+                ->references('id')
+                ->on(config('geodata.table_prefix').'countries')
+                ->restrictOnDelete()
+                ->restrictOnUpdate();
             $table->foreignUlid('parent_subdivision_id')
                 ->nullable();
             $table->string('key');
@@ -23,12 +27,6 @@ return new class extends Migration
         });
 
         Schema::table(config('geodata.table_prefix').'subdivisions', function (Blueprint $table) {
-            $table->foreign('country_id')
-                ->references('id')
-                ->on(config('geodata.table_prefix').'countries')
-                ->restrictOnDelete()
-                ->restrictOnUpdate();
-
             $table->foreign('parent_subdivision_id')
                 ->references('id')
                 ->on(config('geodata.table_prefix').'subdivisions')
